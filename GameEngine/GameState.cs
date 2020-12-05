@@ -3,8 +3,7 @@ using System.Collections.Generic;
 
 namespace GameEngine
 {
-    // GameState will hold the current state for a game.
-    public class GameState
+        public class GameState
     {
         public static readonly int EarthquakeDamage = 25;
         public List<PlayerCharacter> Players { get; set; } = new List<PlayerCharacter>();
