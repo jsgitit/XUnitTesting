@@ -165,27 +165,6 @@ namespace GameEngine.Tests
         }
 
         [Fact]
-        public void TakeZeroDamage()
-        {
-            _sut.TakeDamage(0);
-
-            Assert.Equal(100, _sut.Health);
-        }
-        [Fact]
-        public void TakeSmallDamage()
-        {
-            _sut.TakeDamage(1);
-
-            Assert.Equal(99, _sut.Health);
-        }
-        [Fact]
-        public void TakeMediumDamage()
-        {
-            _sut.TakeDamage(50);
-
-            Assert.Equal(50, _sut.Health);
-        }
-        [Fact]
         public void HaveMinimumOf1Health()
         {
             _sut.TakeDamage(101);
@@ -193,6 +172,17 @@ namespace GameEngine.Tests
             Assert.Equal(1, _sut.Health);
         }
 
+        [Theory]
+        [InlineData(0, 100)]
+        [InlineData(1,99)]
+        [InlineData(50,50)]
+        [InlineData(100,1 )]
 
+        public void TakeDamage(int damage, int expectedHealth)
+        {
+            _sut.TakeDamage(damage);
+
+            Assert.Equal(expectedHealth, _sut.Health);
+        }
     }
 }
