@@ -174,8 +174,10 @@ namespace GameEngine.Tests
 
         // This TakeDamage() method will have to be duplicated for NonPlayerCharacterShould class. 
         // This will be refactored to [MemberData()]
+        // Then refactored to use the InternalHealthDamageTestData class, 
+        // and finally refactored to use the ExternalHealthDamageTest data class.
         [Theory]
-        [MemberData(nameof(InternalHealthDamageTestData.TestData), MemberType = typeof(InternalHealthDamageTestData))]
+        [MemberData(nameof(ExternalHealthDamageTestData.TestData), MemberType = typeof(ExternalHealthDamageTestData))]
 
         public void TakeDamage(int damage, int expectedHealth)
         {

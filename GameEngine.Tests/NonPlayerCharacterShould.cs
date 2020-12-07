@@ -11,7 +11,7 @@ namespace GameEngine.Tests
         //[InlineData(101, 1)]
 
         [Theory]
-        [MemberData(nameof(InternalHealthDamageTestData.TestData), MemberType = typeof(InternalHealthDamageTestData))]
+        [MemberData(nameof(ExternalHealthDamageTestData.TestData), MemberType = typeof(ExternalHealthDamageTestData))]
         public void TakeDamage(int damage, int expectedHealth)
         {
             NonPlayerCharacter sut = new NonPlayerCharacter();
