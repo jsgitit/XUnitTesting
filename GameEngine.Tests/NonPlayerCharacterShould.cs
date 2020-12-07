@@ -9,6 +9,9 @@ namespace GameEngine.Tests
         //[InlineData(1, 99)]
         //[InlineData(50, 50)]
         //[InlineData(101, 1)]
+
+        [Theory]
+        [MemberData(nameof(InternalHealthDamageTestData.TestData), MemberType = typeof(InternalHealthDamageTestData))]
         public void TakeDamage(int damage, int expectedHealth)
         {
             NonPlayerCharacter sut = new NonPlayerCharacter();
