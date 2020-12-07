@@ -172,6 +172,8 @@ namespace GameEngine.Tests
             Assert.Equal(1, _sut.Health);
         }
 
+        // This TakeDamage() method will have to be duplicated for NonPlayerCharacterShould class. 
+        // This will be refactored.
         [Theory]
         [InlineData(0, 100)]
         [InlineData(1,99)]
