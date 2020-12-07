@@ -172,13 +172,16 @@ namespace GameEngine.Tests
             Assert.Equal(1, _sut.Health);
         }
 
-        // This TakeDamage() method will have to be duplicated for NonPlayerCharacterShould class. 
-        // This will be refactored to [MemberData()]
-        // Then refactored to use the InternalHealthDamageTestData class, 
-        // and finally refactored to use the ExternalHealthDamageTest data class.
+        // A TakeDamage() method will have to be duplicated for NonPlayerCharacterShould class. 
+        // This will be refactored to [MemberData()], but still has hard-coded test cases.
+        // We refactored to use the InternalHealthDamageTestData class, 
+        // then we refactored to use the ExternalHealthDamageTest data class.
         [Theory]
-        [MemberData(nameof(ExternalHealthDamageTestData.TestData), MemberType = typeof(ExternalHealthDamageTestData))]
-
+        //[MemberData(nameof(ExternalHealthDamageTestData.TestData), MemberType = typeof(ExternalHealthDamageTestData))]
+        
+        // ... ultimately we reference a custom attribute as definedin the HealthDataDamageAttribute class:
+        [HealthDataDamage]
+        
         public void TakeDamage(int damage, int expectedHealth)
         {
             _sut.TakeDamage(damage);
